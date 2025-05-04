@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Waste Water Management</title>
+    <link rel="stylesheet" href="Index.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.2.1/css/fontawesome.min.css">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
+</head>
+<body>
+    <section class="header">
+        <nav>
+            <a href="che110project.html"><img src="https://upload.wikimedia.org/wikipedia/en/3/3a/Lovely_Professional_University_logo.png"</a>
+            <div class="nav-link" id="navLinks">
+                <i class="fa fa-times" oneclick="hideMenu()"></i>
+                <ul>
+                    <li><a href="">HOME</a></li>
+                    <li><a href="">CREDITS</a></li>
+                </ul>
+            </div>
+            <i class="fa fa-bars" oneclick="showMenu()"></i>
+        </nav>
+    <div class="text-box">
+        <h1>Waste Water Management</h1>
+        <p>Picture a world where every drop of water counts, where rivers run clean and our environment thrives.<br>Welcome to the realm of cutting-edge wastewater management, where innovation meets sustainability<br>to shape a brighter future for generations to come.</p>
+        <a href=" " class="hero-btn">Visit Us to Know More</a>
+    </div>
+    </section>
+<!------JavaScript for Toggle Menu------>
+<script>
+
+    var navLinks = document.getElementById("navLinks");
+
+    function showMenu(){
+        navLinks.style.right = "0";
+    }
+    function hideMenu(){
+        navLinks.style.right = "-200px";
+    }
+
+</script>
+</body>
+</html>

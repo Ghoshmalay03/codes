@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Event Management Services</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+        header {
+            background-color: #ff6c02;
+            color: #fff;
+            padding: 20px;
+            text-align: center;
+        }
+        nav {
+            display: flex;
+            justify-content: flex-end;
+            margin-bottom: 20px;
+            background-color: #f4f4f4;
+            padding: 10px;
+            text-align: center;
+        }
+
+        .nav a{
+            text-decoration: none;
+            color: #333;
+            margin-left: 20px;
+        }
+
+        .nav a:hover {
+            color: #007bff;
+        }
+
+        nav ul {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+            display: flex;
+        }
+        nav ul li {
+            display: inline;
+            margin-right: 100px;
+        }
+        nav ul li a {
+            color: #333;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+        nav ul li a:hover {
+            color: #ff0000;
+        }
+
+        .company-name {
+            color: #000000;
+            font-weight: bold;
+            font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+            margin-right: 900px;
+        }
+
+        .row-name {
+            color: #333;
+            font-weight: bold;
+        }
+
+        .row {
+            max-width: 800px;
+            margin: auto;
+            padding: 20px;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+        }
+
+        h1 {
+            text-align: center;
+        }
+        .service {
+            width: 50%;
+            margin-bottom: 20px;
+            border-bottom: 1px solid #ccc;
+            padding-bottom: 20px;
+            transition: background-color 0.3s ease;
+            padding-left: 20px 15px;
+        }
+
+        .service img {
+            max-width: 80%;
+            margin-right: 80px;
+            border-radius: 3%;
+            padding: 20px 15px;
+        }
+
+        .service:hover {
+            background-color: #f9f9f9;
+        }
+
+        .service h2 {
+            color: #333;
+        }
+        .service p {
+            color: #666;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Services</h1>
+    </header>
+    <nav>
+        <div class="company-name">
+            RNA Events
+        </div>
+        <ul>
+            <li><a href="#">Home</a></li>
+            <li><a href="#">About</a></li>
+            <li><a href="#">Services</a></li>
+            <li><a href="#">Contact</a></li>
+        </ul>
+    </nav>
+    <div class="row">
+        <div class="service">
+            <img src="https://10web-site.ai/11/wp-content/uploads/sites/13/2024/03/sam-balye-fjTJ_Q0Pwkg-unsplash_LkqmIRi4.webp" alt="Event Planning">
+            <h2>Event Planning</h2>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam eget luctus nunc. Vivamus ullamcorper, purus a pulvinar vehicula, massa risus convallis elit, in dictum dui lorem nec odio.</p>
+        </div>
+        <div class="service">
+            <img src="https://10web-site.ai/11/wp-content/uploads/sites/13/2024/03/evelyn-paris-QR_vT8_hBZM-unsplash_LkqmIRi4.webp" alt="Venue Selection">
+            <h2>Venue Selection</h2>
+            <p>Donec at sapien eu nisl faucibus mattis. Duis sit amet pretium lorem. Fusce lacinia erat at sapien vehicula, vitae viverra enim convallis.</p>
+        </div>
+        <div class="service">
+            <img src="https://10web-site.ai/11/wp-content/uploads/sites/13/2024/03/soroush-karimi-crjPrExvShc-unsplash_LkqmIRi4.webp" alt="Venue Selection">
+            <h2>Vendor Coordination</h2>
+            <p>Suspendisse aliquam commodo libero, id ultricies libero lobortis eu. Nullam nec purus sit amet libero condimentum suscipit.</p>
+        </div>
+    </div>
+</body>
+</html>

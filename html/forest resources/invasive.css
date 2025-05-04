@@ -1,0 +1,25 @@
+body {
+    font-size: 20px;
+    background-color:bisque;
+}
+h1 {
+    font-family: sans-serif;
+    font-size: 20px;
+    color: rgb(30, 174, 30);
+}
+i {
+    color: aqua;
+}
+hr {
+    height: 2px;
+    background-color: lime;
+}
+img {
+    width: 300px;
+}
+.invasive {
+    font-family: sans-serif;
+}
+i {
+    color: brown;
+}

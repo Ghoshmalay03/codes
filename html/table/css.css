@@ -1,0 +1,22 @@
+table {
+    width: 100;
+}
+table, td, th {
+    border: 2px dotted red;
+}
+th {
+    background-color: aliceblue;
+}
+tr:nth-child(odd) {
+    background-color: green;
+}
+td {
+    padding:  20px;
+    text-align: center;
+}
+th:hover {
+    background-color: red;
+}
+td:hover {
+    background-color: black;
+}

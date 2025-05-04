@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>Forest Resources</title>
+        <link rel="stylesheet" href="Index.css">
+    </head>
+    <body>
+        <hr>
+        <h1><b>FOREST <i>RESOURCES</i></b>
+        <br>Be Green. Stay Green</h1>
+        <p><h4>Climatic Change - Problems, Effects and Solutuons To Climatic Changes</h4>
+            by <i>Malay, Saroj, Mussaifa</i>
+            <p><b>Top Climate Impacts on Forests</b>
+<p>Climate change may affect forests at both local and regional scales. The impacts can vary even within a single forest. Three key impacts are described in this section.
+
+<p>1. <b>Natural Disturbances</b>
+<br>Climate change will influence a number of natural <a href="https://www.climatehubs.usda.gov/disturbances-and-stressors">disturbances</a> that threaten forest health. These include insect outbreaks, invasive species, wildfires, and storms. Some disturbances, like a wildfire, take place quickly. Others, like changes in animal or plant populations, happen over decades to centuries. Some of their effects may be temporary, allowing a forest to recover. In other cases, a forest may suffer lasting impacts.
+<br><img src="https://www.fao.org/forestry/28057-0fdcd8161be9edc258b859cac8c1112db.jpg">
+<br>Some forests may benefit from certain climate impacts. For instance, warmer temperatures can lead to more tree and plant growth in regions where cold weather limits the growing season. However, in other forests, warmer temperatures may allow invasive species to thrive. Warmer weather can also encourage insect survivial and growth. Over the past decade, climate change has led to an increase in <a href="https://www.fs.usda.gov/ccrc/topics/bark-beetles-and-climate-change-united-states">bark beetle</a> damage to mountain pines in parts of the West.
+<br>Disturbances can also interact with one another to increase risks to forests. For example, drought can weaken trees and make a forest more vulnerable to wildfire or insect outbreaks. Similarly, wildfires can make a forest more vulnerable to pests. Climate impacts can also interact with other stressors, like land development, that decrease a forest’s ability to adapt.
+<p>2. <b>Reduced Carbon Storage</b>
+<br>Climate change is expected to affect forests’ ability to provide key ecosystem services, including carbon storage, clean air, water supply, recreation, and wildlife habitat. One of the most important <a href="https://www.epa.gov/climateimpacts/climate-change-impacts-ecosystems">ecosystem services</a> forests provide is absorbing carbon dioxide from the atmosphere and storing it in roots, soil, aboveground tree growth, and the forest floor.
+<br><img src="https://portal.ct.gov/-/media/DEEP/forestry/Marketing-Template-Photos/Forest-Carbon-Cycle_USFS.jpg?sc_lang=en&h=600&w=800&hash=47D55AA0EB702A03E57E88FF08F4567C">
+<br>Climate change can affect carbon storage in several ways. For example, it may bring more frequent and intense rainfall to some regions. Heavy precipitation and flooding can erode forest soils and cause stored carbon to be released back into the atmosphere. Damage to forests from more wildfires, insects, and disease outbreaks can also release stored carbon.
+<div class="climate"><p><div id="predictor-form">
+    <h2>Climatic Condition Predictor</h2>
+    <form onsubmit="predictClimaticCondition(event)">
+      <label for="temperature">Select Temperature:</label>
+      <select id="temperature" required>
+        <option value="hot">Hot</option>
+        <option value="moderate">Moderate</option>
+        <option value="cold">Cold</option>
+      </select>
+
+      <label for="humidity">Select Humidity:</label>
+      <select id="humidity" required>
+        <option value="low">Low</option>
+        <option value="moderate">Moderate</option>
+        <option value="high">High</option>
+      </select>
+
+      <button type="submit">Predict</button>
+    </form>
+    <div id="prediction"></div>
+</div>
+</div>
+
+<script>
+  function predictClimaticCondition(event) {
+    event.preventDefault();
+
+    const temperature = document.getElementById('temperature').value;
+    const humidity = document.getElementById('humidity').value;
+
+    let prediction = '';
+
+    // Simple prediction logic (for demonstration purposes)
+    if (temperature === 'hot' && humidity === 'high') {
+      prediction = 'Predicted: Tropical Climate';
+    } else if (temperature === 'cold' && humidity === 'low') {
+      prediction = 'Predicted: Arctic Climate';
+    } else {
+      prediction = 'Predicted: Moderate Climate';
+    }
+
+    document.getElementById('prediction').textContent = prediction;
+  }
+</script>
+
+<iframe width="460" height="260" src="https://www.youtube.com/embed/Wrb4b28dgcU?si=h-4_6wiAQ0WgPOJ6" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+ </body>

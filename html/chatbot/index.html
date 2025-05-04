@@ -1,0 +1,475 @@
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Grocery Budget Planner</title>
+    <!-- Bootstrap 5 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Custom CSS -->
+    <style>
+        
+        :root {
+            --primary-color: #3a502c;
+            --secondary-color: #27AE60;
+            --accent-color: #37db34;
+            --light-bg: #ECF0F1;
+        }
+
+        .hero-section {
+            background: linear-gradient(rgba(44, 80, 79, 0.9), rgba(70, 80, 44, 0.9)),
+                        url('https://img.freepik.com/free-vector/hand-drawn-pattern-background_23-2150829943.jpg?ga=GA1.1.405818120.1745442910&semt=ais_hybrid&w=740');
+            background-size: cover;
+            color: white;
+            padding: 100px 0;
+        }
+
+        .feature-card {
+            transition: transform 0.3s ease;
+            border: none;
+            border-radius: 15px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+        }
+
+        .feature-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .feature-icon {
+            font-size: 2.5rem;
+            color: var(--secondary-color);
+        }
+
+        .chat-container {
+            height: 500px;
+            background: var(--light-bg);
+            border-radius: 15px;
+            overflow-y: auto;
+            background-color: azure;
+        }
+
+        .chat-message {
+            margin: 10px;
+            padding: 15px;
+            border-radius: 10px;
+            max-width: 80%;
+        }
+
+        .bot-message {
+            background: white;
+            margin-right: auto;
+        }
+
+        .user-message {
+            background: var(--accent-color);
+            color: white;
+            margin-left: auto;
+        }
+
+        .meal-option {
+            background: white;
+            border-radius: 10px;
+            margin: 10px 0;
+            padding: 15px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+
+        .veg-tag {
+            background: #27AE60;
+            color: white;
+            padding: 2px 8px;
+            border-radius: 12px;
+            font-size: 0.8em;
+        }
+
+        .non-veg-tag {
+            background: #E74C3C;
+            color: white;
+            padding: 2px 8px;
+            border-radius: 12px;
+            font-size: 0.8em;
+        }
+
+        .api-key-section {
+            background: var(--light-bg);
+            padding: 20px;
+            border-radius: 10px;
+            margin-bottom: 20px;
+        }
+        .api-key-input {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            margin-bottom: 10px;
+        }
+        .api-key-status {
+            font-size: 0.9em;
+            margin-top: 5px;
+        }
+        .valid-key {
+            color: var(--secondary-color);
+        }
+        .invalid-key {
+            color: #E74C3C;
+        }
+        .header{
+          background-color: beige;
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <div class="header">
+        <div class="container">
+            
+                
+            
+     </div>
+
+    <!-- API Key Section -->
+    
+
+    <!-- Hero Section -->
+    <section class="hero-section text-center">
+        <div class="container">
+            <h1 class="display-4 mb-4">GroceryGuru🛒 - Planning with AI</h1>
+            <p class="lead mb-4">Meet GroceryGuru — your personal AI-powered grocery planner designed to help you maximize savings, minimize waste, and eat smarter. Whether you're feeding a family or shopping for one, our intelligent chatbot creates personalized meal plans, budget-friendly shopping lists, and savvy tips tailored to your weekly budget and preferences.
+                Plan smarter. Shop better. Save more — with the power of AI at your fingertips.</p>
+                </div>
+    </section>
+
+    <!-- Features Section -->
+    <section id="features" class="py-5">
+        <div class="container">
+            <h2 class="text-center mb-5">Features</h2>
+            <div class="row g-4">
+                <div class="col-md-4">
+                    <div class="card feature-card h-100">
+                        <div class="card-body text-center">
+                            <div class="feature-icon mb-3">💰</div>
+                            <h5 class="card-title">Smart Budgeting</h5>
+                            <p class="card-text">Personalized budget recommendations for both vegetarian and non-vegetarian options</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="card feature-card h-100">
+                        <div class="card-body text-center">
+                            <div class="feature-icon mb-3">📝</div>
+                            <h5 class="card-title">Meal Planning</h5>
+                            <p class="card-text">Customized meal plans based on your dietary preferences and budget</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="card feature-card h-100">
+                        <div class="card-body text-center">
+                            <div class="feature-icon mb-3">🥗</div>
+                            <h5 class="card-title">Dietary Options</h5>
+                            <p class="card-text">Specialized plans for vegetarian and non-vegetarian preferences</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Demo Section -->
+    <section id="demo" class="py-5 bg-light">
+        <div class="container">
+            <h2 class="text-center mb-5">Try GroceryGuru 🛒</h2>
+            <div class="chat-container mb-3 p-3">
+                <div class="chat-message bot-message">
+                    Hi! I'm GroceryGuru. Let's plan your meals in three simple steps:<br>
+                    Let's start! What's your diet preference?
+                </div>
+                <div id="chat-messages"></div>
+            </div>
+            <div class="input-group">
+                <input type="text" id="user-input" class="form-control" placeholder="Type your message...">
+                <button class="btn btn-primary" onclick="sendMessage()">Send</button>
+            </div>
+        </div>
+    </section>
+    </div>
+    <!-- Footer -->
+    <footer class="bg-dark text-light py-4">
+        <div class="container text-center">
+            <p>&copy; 2025 GroceryGuru - AI Grocery Budget Planner</p>
+        </div>
+    </footer>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/js/bootstrap.bundle.min.js"></script>
+    
+    <!-- Custom JavaScript -->
+    <script>
+        const GEMINI_API_KEY = 'AIzaSyBPv40lOwmI94hbd2YfAuJFamXJSIE_rko';
+        const GEMINI_API_URL = 'https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent';
+
+        let currentStep = 1;
+        let userDiet = '';
+        let userBudget = '';
+        let apiKey = '';
+        let isApiKeyValid = false;
+
+        function validateApiKey() {
+            const keyInput = document.getElementById('api-key');
+            const statusDiv = document.getElementById('api-key-status');
+            
+            // In a real application, you would validate against your backend
+            // This is just a demo validation
+            if (keyInput.value.length >= 32) {
+                apiKey = keyInput.value;
+                isApiKeyValid = true;
+                statusDiv.textContent = 'API Key is valid!';
+                statusDiv.className = 'api-key-status valid-key';
+                // Hide the API key section after validation
+                document.querySelector('.api-key-section').style.display = 'none';
+            } else {
+                isApiKeyValid = false;
+                statusDiv.textContent = 'Invalid API Key. Please enter a valid key.';
+                statusDiv.className = 'api-key-status invalid-key';
+            }
+        }
+
+        async function sendMessage() {
+            const userInput = document.getElementById('user-input');
+            const chatMessages = document.getElementById('chat-messages');
+            
+            if (userInput.value.trim() === '') return;
+
+            // Add user message
+            const userMessage = document.createElement('div');
+            userMessage.className = 'chat-message user-message';
+            userMessage.textContent = userInput.value;
+            chatMessages.appendChild(userMessage);
+
+            try {
+                // Process message and get response from Gemini API
+                const response = await processUserInput(userInput.value);
+                
+                // Add bot response
+                const botMessage = document.createElement('div');
+                botMessage.className = 'chat-message bot-message';
+                botMessage.innerHTML = formatResponse(response);
+                chatMessages.appendChild(botMessage);
+
+                // Scroll to bottom
+                const chatContainer = document.querySelector('.chat-container');
+                chatContainer.scrollTop = chatContainer.scrollHeight;
+            } catch (error) {
+                console.error('Error:', error);
+                const errorMessage = document.createElement('div');
+                errorMessage.className = 'chat-message bot-message';
+                errorMessage.textContent = 'Sorry, there was an error processing your request. Please try again.';
+                chatMessages.appendChild(errorMessage);
+            }
+
+            userInput.value = '';
+        }
+
+        function formatResponse(text) {
+            // Format the response with proper HTML structure
+            return text.replace(/\n/g, '<br>')
+                      .replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>')
+                      .replace(/\*(.*?)\*/g, '<em>$1</em>')
+                      .replace(/- (.*?)(?:\n|$)/g, '<li>$1</li>');
+        }
+
+        async function processUserInput(input) {
+            let prompt = '';
+            
+            // Step 1: Diet Type
+            if (currentStep === 1) {
+                if (input.toLowerCase().includes('vegetarian') || input.toLowerCase().includes('veg')) {
+                    userDiet = 'vegetarian';
+                    currentStep = 2;
+                    return `Great choice! For vegetarian meals, we have three budget options:
+                    - Low Budget: $30-40 per week
+                    - Medium Budget: $50-80 per week
+                    - High Budget: $100-120 per week
+                    
+                    Which budget level would you prefer?`;
+                } else if (input.toLowerCase().includes('non') || input.toLowerCase().includes('non-veg')) {
+                    userDiet = 'nonVegetarian';
+                    currentStep = 2;
+                    return `Great choice! For non-vegetarian meals, we have three budget options:
+                    1. Low Budget: $50-60 per week
+                    2. Medium Budget: $70-80 per week
+                    3. High Budget: $100-120 per week
+                    
+                    Which budget level would you prefer?`;
+                } else {
+                    return `Please choose your diet type:
+                    1. Vegetarian
+                    2. Non-Vegetarian
+                    
+                    Just type your preference!`;
+                }
+            }
+            
+            // Step 2: Budget Level
+            if (currentStep === 2) {
+                if (input.toLowerCase().includes('low') || input.toLowerCase().includes('budget')) {
+                    userBudget = 'lowBudget';
+                    currentStep = 3;
+                    prompt = `You are a grocery budget planning assistant. Create a detailed weekly grocery shopping plan for a ${userDiet} diet with a low budget ($30-40 per week). 
+                    Focus on cost-effective ingredients and meal planning. Include:
+
+                    1. Weekly Grocery Budget Breakdown:
+                       - Total Budget: $30-40
+                       - Cost per meal
+                       - Cost per serving
+
+                    2. Essential Grocery Items List:
+                       - Staples (rice, pasta, etc.)
+                       - Fresh produce
+                       - Protein sources
+                       - Dairy/alternatives
+                       - Spices and condiments
+                       - Exact quantities needed
+
+                    3. Meal Plan for 7 Days:
+                       - Breakfast options
+                       - Lunch options
+                       - Dinner options
+                       - Snack suggestions
+
+                    4. Cost-Saving Tips:
+                       - Bulk buying recommendations
+                       - Seasonal produce suggestions
+                       - Store brand alternatives
+                       - Meal prep strategies
+
+                    Format the response in a clear, organized manner with specific quantities and prices.`;
+                } else if (input.toLowerCase().includes('medium')) {
+                    userBudget = 'mediumBudget';
+                    currentStep = 3;
+                    prompt = `You are a grocery budget planning assistant. Create a detailed weekly grocery shopping plan for a ${userDiet} diet with a medium budget ($50-80 per week). 
+                    Focus on balanced nutrition and variety. Include:
+
+                    1. Weekly Grocery Budget Breakdown:
+                       - Total Budget: $50-80
+                       - Cost per meal
+                       - Cost per serving
+
+                    2. Essential Grocery Items List:
+                       - Staples (rice, pasta, etc.)
+                       - Fresh produce
+                       - Protein sources
+                       - Dairy/alternatives
+                       - Spices and condiments
+                       - Exact quantities needed
+
+                    3. Meal Plan for 7 Days:
+                       - Breakfast options
+                       - Lunch options
+                       - Dinner options
+                       - Snack suggestions
+
+                    4. Nutritional Balance:
+                       - Protein sources
+                       - Vegetable variety
+                       - Healthy fats
+                       - Complex carbohydrates
+
+                    Format the response in a clear, organized manner with specific quantities and prices.`;
+                } else if (input.toLowerCase().includes('high')) {
+                    userBudget = 'highBudget';
+                    currentStep = 3;
+                    prompt = `You are a grocery budget planning assistant. Create a detailed weekly grocery shopping plan for a ${userDiet} diet with a high budget ($100-120 per week). 
+                    Focus on premium ingredients and gourmet options. Include:
+
+                    1. Weekly Grocery Budget Breakdown:
+                       - Total Budget: $100-120
+                       - Cost per meal
+                       - Cost per serving
+
+                    2. Premium Grocery Items List:
+                       - Organic produce
+                       - High-quality protein sources
+                       - Specialty ingredients
+                       - Gourmet condiments
+                       - Exact quantities needed
+
+                    3. Gourmet Meal Plan for 7 Days:
+                       - Breakfast options
+                       - Lunch options
+                       - Dinner options
+                       - Snack suggestions
+
+                    4. Special Features:
+                       - Organic options
+                       - Specialty items
+                       - Gourmet ingredients
+                       - Meal presentation tips
+
+                    Format the response in a clear, organized manner with specific quantities and prices.`;
+                } else {
+                    return `Please select your budget level:
+                    - Low Budget
+                    - Medium Budget
+                    - High Budget
+                    
+                    Just type your preference!`;
+                }
+            }
+            
+            // Step 3: Show Results
+            if (currentStep === 3) {
+                if (input.toLowerCase().includes('new') || input.toLowerCase().includes('start over')) {
+                    currentStep = 1;
+                    userDiet = '';
+                    userBudget = '';
+                    return `Let's start over! Please choose your diet type:
+                    - Vegetarian
+                    - Non-Vegetarian
+                    
+                    Just type your preference!`;
+                } else {
+                    // Call Gemini API for grocery plan
+                    const response = await fetch(`${GEMINI_API_URL}?key=${GEMINI_API_KEY}`, {
+                        method: 'POST',
+                        headers: {
+                            'Content-Type': 'application/json'
+                        },
+                        body: JSON.stringify({
+                            contents: [{
+                                parts: [{
+                                    text: prompt
+                                }]
+                            }]
+                        })
+                    });
+
+                    const data = await response.json();
+                    if (data.candidates && data.candidates[0] && data.candidates[0].content && data.candidates[0].content.parts[0]) {
+                        const groceryPlan = data.candidates[0].content.parts[0].text;
+                        return `${groceryPlan}
+                        
+                        Would you like to:
+                        1. Start over with a new plan (type 'new' or 'start over')
+                        2. Get more details about any specific meal
+                        3. Adjust your budget or diet type`;
+                    } else {
+                        throw new Error('Invalid response from API');
+                    }
+                }
+            }
+
+            return "I'm not sure what you mean. Please try again!";
+        }
+
+        // Handle enter key
+        document.getElementById('user-input').addEventListener('keypress', function(e) {
+            if (e.key === 'Enter') {
+                sendMessage();
+            }
+        });
+    </script>
+</body>
+</html> 
